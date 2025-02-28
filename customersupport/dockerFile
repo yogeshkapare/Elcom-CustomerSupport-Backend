@@ -1,0 +1,14 @@
+# Use a lightweight OpenJDK image as base
+FROM eclipse-temurin:17-jdk-alpine
+
+# Set working directory
+WORKDIR /app
+
+# Copy the JAR file from target directory (Ensure your JAR is named correctly)
+COPY target/*.jar app.jar
+
+# Expose application port
+EXPOSE 8081
+
+# Run the application
+ENTRYPOINT ["java", "-jar", "app.jar"]
